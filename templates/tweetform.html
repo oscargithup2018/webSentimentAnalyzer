@@ -10,31 +10,31 @@
 <section class="section">
     <div class="container">
         <h1 class="title is-spaced has-text-link">Análisis de sentimientos</h1>
-        <p class="subtitle is-4">Ingrese el tweet (español) para evaluar el sentimiento:</p>
-        <p class="subtitle is-4">Sin sentimiento, neutro, positivo, negativo</p>
+        <p class="subtitle is-4">Ingrese el tweet (español) para evaluar el sentimiento: Sin sentimiento, neutro,
+            positivo, negativo</p>
 
         {% from "_formhelpers.html" import render_field %}
 
-        <form method=post action="/results">
+        <form method="post" action="/results">
             <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-                <textarea class="textarea" placeholder="Textarea"></textarea>
+                <label class="label">Ingrese un texto</label>
+                <div class="control">
+                    {{ render_field(form.tweet, class_='textarea') }}
+                </div>
             </div>
-        </div>
-            <dl>
-                {{ render_field(form.tweet, cols='30', rows='10') }}
-            </dl>
-            <div>
-                <input type=submit value='Evaluar tweet' name='submit_btn'>
+            <div class="field is-grouped">
+                <div class="control">
+                    <input type="submit" class="button is-link" value="Evaluar texto" name="submit_btn">
+                </div>
+
+                <div id="sqlite" class="control">
+                    <form method="post" action="/sqliteReport">
+                        <input type="submit" class="button is-link is-light" value="Reporte de clasificaciones">
+                    </form>
+                </div>
             </div>
         </form>
 
-        <div id='sqlite'>
-            <form method=post action="/sqliteReport">
-                <input type=submit value='Reporte de clasificaciones'>
-            </form>
-        </div>
     </div>
 </section>
 
