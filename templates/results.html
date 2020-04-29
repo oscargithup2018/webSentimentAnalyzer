@@ -12,50 +12,49 @@
 <section class="section">
     <div class="container">
         <h1 class="title is-1">Resultado</h1>
-        <h3 class="title is-3">El tweet:</h3>
-        <p class="subtitle is-3 has-text-link"><em>{{ content }}</em></p>
+        <h3 class="title is-5">El tweet:</h3>
+        <p class="subtitle is-5 has-text-link"><em>{{ content }}</em></p>
 
-        <h3 class="title is-3">Predicción:</h3>
-        <p class="subtitle is-3">El tweet se clasificó como <strong class="has-text-link">{{ prediction }}</strong>
+        <h3 class="title is-5">Predicción:</h3>
+        <p class="subtitle is-5">El tweet se clasificó como <strong class="has-text-link">{{ prediction }}</strong>
             (con una probabilidad de: <strong class="has-text-link">{{ probability }}%)</strong>.
         </p>
-        <div>
-            <div class="divider subtitle is-4">Validación</div>
-        </div>
+        <h1 class="title is-2">Validación</h1>
+        <h5 class="subtitle is-5">¿La clasificación fue correcta?</h5>
         <form action="/thanks" method="post">
-            <p class="subtitle is-4">¿La clasificación fue correcta?</p>
             <input class="button is-primary is-outlined" type=submit value='Aprobado' name='feedback_button'>
             <input type=hidden value='{{ prediction }}' name='prediction'>
             <input type=hidden value='{{ content }}' name='tweet'>
         </form>
-        <p class="subtitle is-4">De lo contrario seleccione la opción correcta del sentimiento del tweet</p>
+        <h5 class="subtitle is-5">De lo contrario seleccione la opción correcta del sentimiento del tweet</h5>
         <form action="/thanks" method="post">
-            <input class="button is-outlined" type=submit value='Sin sentimientos' name='feedback_button'><br>
+            <input class="button is-link is-outlined" type=submit value='Sin sentimientos' name='feedback_button'><br>
             <input type=hidden value='Sin sentimiento' name='prediction'>
             <input type=hidden value='{{ content }}' name='tweet'>
         </form>
         <form action="/thanks" method="post">
-            <input class="button is-outlined" type=submit value='Sentimientos neutros' name='feedback_button'><br>
+            <input class="button  is-link is-outlined" type=submit value='Sentimientos neutros'
+                   name='feedback_button'>
             <input type=hidden value='Neutro' name='prediction'>
             <input type=hidden value='{{ content }}' name='tweet'>
         </form>
         <form action="/thanks" method="post">
-            <input class="button is-outlined" type=submit value='Sentimientos positivos' name='feedback_button'><br>
+            <input class="button  is-link is-outlined" type=submit value='Sentimientos positivos'
+                   name='feedback_button'>
             <input type=hidden value='Positivo' name='prediction'>
             <input type=hidden value='{{ content }}' name='tweet'>
         </form>
         <form action="/thanks" method="post">
-            <input class="button is-outlined" type=submit value='Sentimientos negativos' name='feedback_button'><br>
+            <input class="button  is-link is-outlined" type=submit value='Sentimientos negativos'
+                   name='feedback_button'>
             <input type=hidden value='Negativo' name='prediction'>
             <input type=hidden value='{{ content }}' name='tweet'>
         </form>
 
-        <div>
-            <div class="divider subtitle is-4">Otros</div>
-        </div>
+        <h1 class="title is-2">Otros</h1>
 
         <form action="/">
-            <input class="button is-success is-rounded" type=submit value='Evaluar otro tweet'>
+            <input class="button is-success is-outlined is-light" type=submit value='Evaluar otro tweet'>
         </form>
 
 

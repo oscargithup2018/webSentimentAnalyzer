@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sqlite clasificador de sentimientos Tweet</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 <section class="section">
     <div class="container">
-        <h3 class="title">Listado de clasificaciones realizadas</h3>
+        <div class="columns">
+            <div class="column">
+                <h3 class="title">Listado de clasificaciones realizadas</h3>
+            </div>
+            <div class="column">
+                <form action="/">
+                    <input class="button is-link" type=submit value='Evaluar otro tweet'>
+                </form>
+            </div>
+        </div>
+
         <div class="table-container">
-            <table class="table is-bordered is-striped is-narrow">
-                <thead class="has-text-centered">
+            <table class="table is-fullwidth is-bordered is-striped is-narrow is-hoverable ">
+                <thead>
                 <tr>
                     <th>Tweet</th>
                     <th>Sentimiento</th>
@@ -25,7 +36,7 @@
                 <tr>
                     <td>{{row[0]}}</td>
                     <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
+                    <td class="colunm-width">{{row[2]}}</td>
                 </tr>
                 {% endfor %}
                 </tbody>
